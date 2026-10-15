@@ -31,3 +31,6 @@ scripts/deleted/
 # vscode setting folder
 .vscode/settings.json
 .vercel
+
+# Local Netlify folder
+.netlify
