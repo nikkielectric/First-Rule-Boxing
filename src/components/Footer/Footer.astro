@@ -403,15 +403,17 @@ const socialLinks = [
   @media only screen and (min-width: 64rem) {
     #cs-footer-1110 {
       .cs-container {
-        max-width: (1440/16rem);
+        /* matches .cs-bottom's max-width so the columns line up with the
+           divider/copyright row below them */
+        max-width: (1280/16rem);
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: nowrap;
-        column-gap: clamp(2.5rem, 6vw, 5.25rem);
+        column-gap: clamp(2rem, 4vw, 4rem);
       }
 
       .cs-brand {
-        width: (360/16rem);
+        width: (320/16rem);
         flex: none;
       }
 
