@@ -1,0 +1,170 @@
+---
+// YOUTH BOXING — /services/youth-boxing/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/youth-boxing.jpg";
+import introImage from "@assets/images/gallery/gallery-7.jpg";
+import whyImageOne from "@assets/images/gallery/gallery-8.jpg";
+import whyImageTwo from "@assets/images/about/about-training.jpg";
+import processBefore from "@assets/images/gallery/gallery-2.jpg";
+import processAfter from "@assets/images/gallery/gallery-7.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "Youth Boxing in Fort Worth, TX",
+		seoDescription:
+			"Coached youth boxing for kids and teens in north Fort Worth, TX. Discipline, confidence, and real technique in a family-oriented gym.",
+	},
+	banner: {
+		title: "Youth Boxing",
+		description:
+			"Discipline and confidence, one round at a time — coached boxing for kids and teens.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "Youth Boxing",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"Youth boxing isn't just a kids' version of the adult class — it's built around what actually helps young members: structure, repetition, and a coach who holds them to a standard. Stance, footwork, and basic combinations are taught the same way they'd be taught to an adult, just at a pace and contact level that fits their age and experience.",
+			"What most parents notice first isn't the boxing — it's the discipline. Kids who show up regularly learn to focus, follow instruction, and push through a hard round instead of quitting on it. That carries over well past the gym.",
+		],
+		emphasis:
+			"Real coaching, age-appropriate pace, and a gym that knows every kid by name.",
+		listIntro: "What youth boxing builds:",
+		listItems: [
+			{
+				label: "Fundamentals",
+				description: "Stance, guard, footwork, and basic combinations — the same foundation as the adult program.",
+			},
+			{
+				label: "Discipline",
+				description: "Following instruction, respecting the gym, and showing up consistently are part of the program, not an afterthought.",
+			},
+			{
+				label: "Confidence",
+				description: "Progress in boxing is visible and earned — kids feel it as their technique and conditioning improve.",
+			},
+			{
+				label: "Community",
+				description: "A family-oriented gym where coaches and other members know your kid, not just their name on a roster.",
+			},
+		],
+		image: introImage,
+		imageAlt: "Youth boxing class at First Rule Boxing Club in Fort Worth, TX",
+	},
+	whyChoose: {
+		title: "Why Parents Choose First Rule",
+		introPara:
+			"Parents don't keep bringing their kids back because of the workout — they keep coming back because of how their kid acts afterward. That's the coaching, not the bags.",
+		reasons: [
+			{
+				heading: "Age-Appropriate Coaching",
+				description: "Pace and contact level are adjusted for age and experience — nobody's rushed into more than they're ready for.",
+			},
+			{
+				heading: "Real Structure",
+				description: "Class has a routine: warm-up, technique, conditioning, cooldown. Kids know what to expect every time.",
+			},
+			{
+				heading: "A Coach Who Knows Them",
+				description: "Same coach, consistent feedback — not a rotating cast of instructors who don't know your kid's name.",
+			},
+			{
+				heading: "Family-Oriented Gym",
+				description: "Parents are welcome to watch, and the gym culture is built around respect, not intimidation.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "A young member training on the heavy bag at First Rule Boxing Club",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "First Rule Boxing Club training floor",
+	},
+	process: {
+		title: "Getting Your Kid Started",
+		paragraph:
+			"Most parents start with a phone call or a message to ask about age range and class format, then bring their kid to a class to see how it fits.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Reach out first",
+				description: "Call or message us with your kid's age and any experience level — we'll tell you what to expect.",
+			},
+			{
+				label: "Try a class",
+				description: "Kids come watch or join a class before committing to a schedule, so they know what they're signing up for.",
+			},
+			{
+				label: "Build a routine",
+				description: "Most youth members settle into 1–2 classes a week to start, building from there.",
+			},
+			{
+				label: "Stay involved",
+				description: "Parents can ask the coach directly about progress — there's no black box here.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "Boxing gloves and training equipment",
+		imageTwo: processAfter,
+		imageTwoAlt: "Youth boxing class at First Rule Boxing Club",
+	},
+	faq: {
+		title: "Youth Boxing FAQs",
+		questions: [
+			{
+				question: "What age does youth boxing start at?",
+				answer:
+					"Class pace and contact level are adjusted by age and experience. Call or text us with your child's age and we'll help you figure out the right fit.",
+			},
+			{
+				question: "Is there contact or sparring for kids?",
+				answer:
+					"Youth classes focus on fundamentals, technique, and conditioning. Any contact work is introduced gradually and only when a coach feels a young member is ready.",
+			},
+			{
+				question: "Can parents watch class?",
+				answer:
+					"Yes. Parents are welcome to watch from the gym floor.",
+			},
+			{
+				question: "How often should my kid train?",
+				answer:
+					"Most youth members start with 1–2 classes a week. We'll help you find a schedule that works around school and other activities.",
+			},
+			{
+				question: "What should my kid wear or bring?",
+				answer:
+					"Comfortable athletic clothes and closed-toe shoes. We can point you toward youth-sized gloves and wraps if needed — just ask when you call.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "Youth Boxing",
+	description: service.meta.seoDescription,
+	slug: "youth-boxing",
+	serviceType: "Youth boxing classes",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "Youth Boxing", url: "/services/youth-boxing/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>

@@ -1,0 +1,170 @@
+---
+// OPEN GYM MEMBERSHIP — /services/open-gym-membership/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/open-gym.jpg";
+import introImage from "@assets/images/gallery/gallery-3.jpg";
+import whyImageOne from "@assets/images/about/about-facility.jpg";
+import whyImageTwo from "@assets/images/gallery/gallery-7.jpg";
+import processBefore from "@assets/images/gallery/gallery-8.jpg";
+import processAfter from "@assets/images/about/about-training.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "Open Gym Membership in Fort Worth, TX",
+		seoDescription:
+			"Open gym membership at First Rule Boxing Club in north Fort Worth, TX. Full access to heavy bags, mitts, and the training floor outside class hours.",
+	},
+	banner: {
+		title: "Open Gym Membership",
+		description:
+			"Bags, space, and time to put in the work — on your own schedule.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "Open Gym Membership",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"Not every member wants a class schedule — some just want access to the gym. Open gym membership gives you the heavy bags, mitts, and training floor so you can drill on your own time, at your own pace.",
+			"It's a good fit for members who already know the fundamentals and want extra reps outside of class, or anyone who wants to supplement group classes or personal training with independent practice time.",
+		],
+		emphasis:
+			"Full access to the heavy bags, mitts, and training floor outside of class hours.",
+		listIntro: "Open gym membership gives you:",
+		listItems: [
+			{
+				label: "Heavy bag access",
+				description: "Work combinations and conditioning on your own time, without a class structure.",
+			},
+			{
+				label: "Training floor space",
+				description: "Room to shadowbox, drill footwork, and work through technique independently.",
+			},
+			{
+				label: "Flexible hours",
+				description: "Train outside of scheduled class times, fitting the gym into your own routine.",
+			},
+			{
+				label: "A supplement to coaching",
+				description: "Pairs well with group classes or 1-on-1 sessions for extra independent reps.",
+			},
+		],
+		image: introImage,
+		imageAlt: "Boxing gloves on the ring ropes",
+	},
+	whyChoose: {
+		title: "Why Members Use Open Gym",
+		introPara:
+			"Some of our strongest members aren't just the ones in every class — they're the ones putting in extra, independent reps on open gym time too.",
+		reasons: [
+			{
+				heading: "Train On Your Schedule",
+				description: "No class times to work around — just come in and put in the work.",
+			},
+			{
+				heading: "Extra Reps",
+				description: "Supplement your class or coaching schedule with independent practice time.",
+			},
+			{
+				heading: "Full Equipment Access",
+				description: "Heavy bags, mitts, and training floor space, same gym members train in during classes.",
+			},
+			{
+				heading: "A Familiar Space",
+				description: "Train in the same gym you already know, without needing a coach present for every session.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "First Rule Boxing Club training floor and equipment",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "Heavy bags and training equipment at First Rule Boxing Club",
+	},
+	process: {
+		title: "Getting An Open Gym Membership",
+		paragraph:
+			"Open gym membership starts with a conversation about your goals and current experience level, to make sure it's the right fit alongside — or instead of — coached classes.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Talk it through",
+				description: "We'll confirm open gym membership fits what you're looking for, especially if you're newer to boxing.",
+			},
+			{
+				label: "Get oriented",
+				description: "A quick walkthrough of the equipment and gym expectations before you start training independently.",
+			},
+			{
+				label: "Train on your schedule",
+				description: "Come in during open gym hours and work at your own pace.",
+			},
+			{
+				label: "Add coaching anytime",
+				description: "You can add group classes or 1-on-1 sessions alongside open gym access whenever you want more structure.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "A member training on the heavy bag at First Rule Boxing Club",
+		imageTwo: processAfter,
+		imageTwoAlt: "First Rule Boxing Club training floor",
+	},
+	faq: {
+		title: "Open Gym Membership FAQs",
+		questions: [
+			{
+				question: "Is open gym membership good for beginners?",
+				answer:
+					"It can be, but we usually recommend beginners start with at least a few coached classes first to learn proper fundamentals before training independently.",
+			},
+			{
+				question: "What's included in open gym access?",
+				answer:
+					"Access to the heavy bags, mitts, and training floor outside of scheduled class hours.",
+			},
+			{
+				question: "Can I combine open gym with group classes?",
+				answer:
+					"Yes — many members use open gym time to get extra reps in alongside their regular class schedule.",
+			},
+			{
+				question: "What are open gym hours?",
+				answer:
+					"Open gym time is built around our Monday–Thursday training windows. Call or text us for current open gym availability.",
+			},
+			{
+				question: "How do I sign up?",
+				answer:
+					"Call, text, or send a message through the contact form and we'll walk you through membership options.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "Open Gym Membership",
+	description: service.meta.seoDescription,
+	slug: "open-gym-membership",
+	serviceType: "Gym membership",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "Open Gym Membership", url: "/services/open-gym-membership/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>

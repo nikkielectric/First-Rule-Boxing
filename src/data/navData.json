@@ -1,0 +1,40 @@
+[
+  {
+    "key": "Home",
+    "url": "/",
+    "children": []
+  },
+  {
+    "key": "About",
+    "url": "/about/",
+    "children": []
+  },
+  {
+    "key": "Programs",
+    "url": "/services/",
+    "children": [
+      { "key": "Group Boxing Classes", "url": "/services/group-boxing-classes/" },
+      { "key": "Youth Boxing", "url": "/services/youth-boxing/" },
+      { "key": "1-on-1 Personal Training", "url": "/services/personal-training/" },
+      { "key": "Self-Defense Training", "url": "/services/self-defense/" },
+      { "key": "STRONG by Zumba", "url": "/services/strong-by-zumba/" },
+      { "key": "Open Gym Membership", "url": "/services/open-gym-membership/" }
+    ]
+  },
+  {
+    "key": "Service Areas",
+    "url": "/service-areas/",
+    "children": [
+      { "key": "Fort Worth, TX", "url": "/fort-worth/" },
+      { "key": "Keller, TX", "url": "/keller/" },
+      { "key": "Saginaw, TX", "url": "/saginaw/" },
+      { "key": "Haslet, TX", "url": "/haslet/" },
+      { "key": "Roanoke, TX", "url": "/roanoke/" }
+    ]
+  },
+  {
+    "key": "Contact",
+    "url": "/contact/",
+    "children": []
+  }
+]

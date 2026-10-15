@@ -1,0 +1,170 @@
+---
+// SELF-DEFENSE TRAINING — /services/self-defense/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/self-defense.jpg";
+import introImage from "@assets/images/gallery/gallery-2.jpg";
+import whyImageOne from "@assets/images/gallery/gallery-3.jpg";
+import whyImageTwo from "@assets/images/gallery/gallery-8.jpg";
+import processBefore from "@assets/images/gallery/gallery-4.jpg";
+import processAfter from "@assets/images/about/about-facility.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "Self-Defense Training in Fort Worth, TX",
+		seoDescription:
+			"Practical self-defense training in north Fort Worth, TX for women, professionals, and beginners. One-on-one or small-group sessions, taught without the ego.",
+	},
+	banner: {
+		title: "Self-Defense Training",
+		description:
+			"Practical skills for real situations — taught one-on-one or in small groups.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "Self-Defense Training",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"Self-defense training here isn't a one-time seminar or a few scripted moves — it's straightforward boxing-based technique you can actually use, taught in a way that builds real comfort and muscle memory, not just a false sense of confidence.",
+			"Sessions are built for women, professionals, and complete beginners — people who want practical skills without walking into a room full of experienced fighters on day one. One-on-one or small-group formats let the coach adjust the pace and keep it approachable.",
+		],
+		emphasis:
+			"One-on-one or small-group sessions, built for beginners, taught without the ego.",
+		listIntro: "What self-defense training covers:",
+		listItems: [
+			{
+				label: "Basic stance & guard",
+				description: "The foundation for staying balanced and protected in any confrontation.",
+			},
+			{
+				label: "Practical strikes",
+				description: "Simple, effective strikes that don't require years of training to execute under pressure.",
+			},
+			{
+				label: "Awareness & positioning",
+				description: "How to read a situation and position yourself before it escalates.",
+			},
+			{
+				label: "Repetition that sticks",
+				description: "Drilled enough times that the response becomes instinct, not something you have to think through.",
+			},
+		],
+		image: introImage,
+		imageAlt: "Boxing gloves and training equipment",
+	},
+	whyChoose: {
+		title: "Why Train Self-Defense Here",
+		introPara:
+			"A lot of self-defense classes are one-and-done seminars. Ours are built the same way our boxing program is — coached, repeated, and actually practiced until it's real.",
+		reasons: [
+			{
+				heading: "Built For Beginners",
+				description: "No boxing background required. Sessions start from zero and build from there.",
+			},
+			{
+				heading: "One-on-One Or Small Group",
+				description: "Choose the format that feels more comfortable — private sessions or a small group setting.",
+			},
+			{
+				heading: "Practical, Not Flashy",
+				description: "Technique that's simple enough to actually use under pressure, not complicated moves that look good in a demo.",
+			},
+			{
+				heading: "No Ego In The Room",
+				description: "Sessions are taught with patience, not intimidation — this is about building real skill and confidence.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "Boxing gloves on the ring ropes",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "A member training on the heavy bag at First Rule Boxing Club",
+	},
+	process: {
+		title: "Starting Self-Defense Training",
+		paragraph:
+			"Most members start with a conversation about comfort level and goals, then a first session focused on fundamentals in a low-pressure setting.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Talk it through first",
+				description: "Tell us your experience level and what you want out of training — we'll build the session around it.",
+			},
+			{
+				label: "Start with fundamentals",
+				description: "Stance, guard, and basic strikes come first, before anything more advanced.",
+			},
+			{
+				label: "Choose your format",
+				description: "One-on-one for full individual attention, or small-group if you'd rather train alongside others.",
+			},
+			{
+				label: "Build from there",
+				description: "Sessions build in complexity as your comfort and technique grow.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "A group boxing class working the heavy bags",
+		imageTwo: processAfter,
+		imageTwoAlt: "First Rule Boxing Club training floor",
+	},
+	faq: {
+		title: "Self-Defense Training FAQs",
+		questions: [
+			{
+				question: "Do I need any experience to start?",
+				answer:
+					"No. Self-defense training is built for complete beginners — sessions start with fundamentals and build from there.",
+			},
+			{
+				question: "Is self-defense training one-on-one or group?",
+				answer:
+					"Both formats are available. Choose whichever feels more comfortable — private sessions for full individual attention, or small groups to train alongside others.",
+			},
+			{
+				question: "Is this the same as boxing classes?",
+				answer:
+					"Self-defense training uses boxing-based technique but is focused specifically on practical, real-world scenarios rather than the sport side of boxing.",
+			},
+			{
+				question: "What should I wear?",
+				answer:
+					"Comfortable athletic clothes and closed-toe shoes. No equipment needed for your first session.",
+			},
+			{
+				question: "How do I get started?",
+				answer:
+					"Call, text, or send a message through the contact form and we'll help you figure out the right format and schedule.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "Self-Defense Training",
+	description: service.meta.seoDescription,
+	slug: "self-defense",
+	serviceType: "Self-defense training",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "Self-Defense Training", url: "/services/self-defense/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>

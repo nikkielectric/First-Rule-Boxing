@@ -1,0 +1,85 @@
+---
+// Utils
+import { getImage } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero/Hero.astro";
+import Services from "@components/Services/Services.astro";
+import WhyChoose from "@components/WhyChoose/WhyChoose.astro";
+import Process from "@components/Process/OurProcess.astro";
+import CTASimple from "@components/CTA/CTASimple.astro";
+import Gallery from "@components/Gallery/Gallery.astro";
+import Reviews from "@components/Reviews/Reviews.astro";
+import FAQ from "@components/FAQ/FAQ.astro";
+
+// Data
+import { SITE, BUSINESS } from "@data/client";
+import { buildFaqSchema } from "@js/serviceSchema.js";
+
+// Hero photo
+import heroImage from "@assets/images/hero/hero.jpg";
+const optimizedHeroImage = await getImage({ src: heroImage, format: "webp" });
+
+const homeFaq = {
+	title: "Frequently Asked Questions",
+	questions: [
+		{
+			question: "Where is First Rule Boxing Club located?",
+			answer:
+				"We're at 10027 Harmon Rd Suite 127 in north Fort Worth, TX, and we train members from Fort Worth, Keller, Saginaw, Haslet, and Roanoke. If you're nearby, come try a class.",
+		},
+		{
+			question: "Do I need boxing experience to start?",
+			answer:
+				"No. Most members start with zero boxing experience. Group classes are coached at a pace that works for beginners, and the coach adjusts the intensity to the room.",
+		},
+		{
+			question: "What are your hours?",
+			answer:
+				"We train Monday through Thursday, with an early-morning block (6:00–7:00 AM) and an evening block (6:00–8:00 PM). We're closed Friday through Sunday.",
+		},
+		{
+			question: "What age do you start youth boxing?",
+			answer:
+				"Youth boxing is built for kids and teens, with class pace and contact level adjusted by age and experience. Call or text us and we'll help you figure out the right fit for your child.",
+		},
+		{
+			question: "Do you offer self-defense classes for beginners?",
+			answer:
+				"Yes — our self-defense training is built for women, professionals, and complete beginners. It's practical, straightforward technique, taught one-on-one or in small groups.",
+		},
+		{
+			question: "Can I just use the gym without taking a class?",
+			answer:
+				"Yes. Open gym membership gives you access to the heavy bags, mitts, and training floor outside of class hours, for members who want to drill on their own schedule.",
+		},
+		{
+			question: "How do I get started?",
+			answer:
+				"Call, text, or send a message through our contact form and we'll get you on the schedule for a class. No long-term contract required to try it out.",
+		},
+	],
+};
+
+const faqSchema = buildFaqSchema(homeFaq.questions);
+---
+
+<BaseLayout
+	title="Boxing Gym for Every Skill Level"
+	description={SITE.description}
+	heroImage={optimizedHeroImage}
+>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
+	<Hero image={optimizedHeroImage} />
+	<Services />
+	<WhyChoose />
+	<Process />
+	<CTASimple />
+	<Gallery />
+	<Reviews />
+	<FAQ {...homeFaq} />
+</BaseLayout>

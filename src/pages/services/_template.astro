@@ -1,0 +1,63 @@
+---
+/**
+ * * SERVICE PAGE TEMPLATE
+ * * Files prefixed with `_` are ignored by Astro's router — this file will NOT become a route.
+ * * To add a new service page: copy this file, rename it (e.g. `bathroom-remodeling.astro`),
+ * * then fill in the TODOs below.
+ */
+
+// Utils
+import { getImage } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Banner from "@components/Banner/Banner.astro";
+import FAQ from "@components/FAQ/FAQ.astro";
+import CTA from "@components/CTA/CTASimple.astro";
+
+// TODO: import service-specific banner image
+// import bannerImage from "@assets/images/banners/<your-service>.png";
+
+// TODO: replace with the real banner import above; placeholder falls back to a generic brand banner
+import bannerImage from "@assets/images/banners/generic.jpg";
+
+const optimizedImage = await getImage({ src: bannerImage, format: "webp" });
+
+// TODO: fill in service-specific metadata
+const service = {
+	title: "Service Name",
+	bannerDescription: "One-line hook that appears under the banner title.",
+	seoDescription:
+		"SEO meta description — 140-160 characters pitching this specific service for Austin homeowners/businesses.",
+};
+---
+
+<BaseLayout title={service.title} description={service.seoDescription} heroImage={optimizedImage}>
+	<Banner
+		title={service.title}
+		description={service.bannerDescription}
+		image={optimizedImage}
+	/>
+
+	<!-- ============================================ -->
+	<!--             TODO: Intro / overview           -->
+	<!-- ============================================ -->
+	<!-- e.g. side-by-side with the "what we do" pitch for this service -->
+
+	<!-- ============================================ -->
+	<!--          TODO: Features / Why Us             -->
+	<!-- ============================================ -->
+	<!-- list of what's included / differentiators -->
+
+	<!-- ============================================ -->
+	<!--          TODO: Process (before/after)        -->
+	<!-- ============================================ -->
+	<!-- reuse OurProcess or build a service-specific version -->
+
+	<!-- ============================================ -->
+	<!--         TODO: Gallery of past projects       -->
+	<!-- ============================================ -->
+
+	<FAQ />
+	<CTA />
+</BaseLayout>

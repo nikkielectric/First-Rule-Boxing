@@ -1,0 +1,178 @@
+---
+// GROUP BOXING CLASSES — /services/group-boxing-classes/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/group-boxing.jpg";
+import introImage from "@assets/images/gallery/gallery-4.jpg";
+import whyImageOne from "@assets/images/gallery/gallery-1.jpg";
+import whyImageTwo from "@assets/images/gallery/gallery-5.jpg";
+import processBefore from "@assets/images/about/about-facility.jpg";
+import processAfter from "@assets/images/gallery/gallery-6.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "Group Boxing Classes in Fort Worth, TX",
+		seoDescription:
+			"Coached 45-minute group boxing classes in north Fort Worth, TX. Technique, pad work, and conditioning for every level — no experience required.",
+	},
+	banner: {
+		title: "Group Boxing Classes",
+		description:
+			"45 minutes of technique, pad work, and conditioning — coached, every class, no experience required.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "Group Boxing",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"Group boxing classes are where most members start — and where a lot of them stay. Each class is built around real technique: stance, footwork, combinations, and pad work, led by a coach who's watching the room, not just calling out a clock.",
+			"It's conditioning too, but it's not a cardio class wearing boxing as a costume. You'll leave tired, but you'll also leave having learned something — a cleaner jab, better guard position, footwork that actually moves you off the center line.",
+		],
+		emphasis:
+			"45 minutes. Technique first, conditioning built in. No experience required.",
+		listIntro: "Here's what a typical class covers:",
+		listItems: [
+			{
+				label: "Warm-up & fundamentals",
+				description:
+					"Stance, guard, footwork — the basics get reinforced every class, not just in week one.",
+			},
+			{
+				label: "Technique & combinations",
+				description:
+					"Pad work and bag work building on real boxing combinations, adjusted to the skill level in the room.",
+			},
+			{
+				label: "Conditioning",
+				description:
+					"Rounds built around boxing movement — not generic cardio — so the conditioning carries over to your technique.",
+			},
+			{
+				label: "Coached correction",
+				description:
+					"The coach is moving through the room the whole class, correcting form in real time, not just demonstrating once.",
+			},
+		],
+		image: introImage,
+		imageAlt: "A group boxing class working the heavy bags",
+	},
+	whyChoose: {
+		title: "Why Train With Us",
+		introPara:
+			"A lot of gyms hand you gloves and point at a bag. We coach every class — which is the difference between hitting pads for 45 minutes and actually getting better at boxing.",
+		reasons: [
+			{
+				heading: "Coached, Not Supervised",
+				description:
+					"Every class is led. The coach corrects your stance, your guard, and your combinations as you go.",
+			},
+			{
+				heading: "Built For Every Level",
+				description:
+					"First class or hundredth class, the coaching adjusts to where you're at — nobody gets left behind or held back.",
+			},
+			{
+				heading: "Real Technique",
+				description:
+					"You're learning actual boxing fundamentals, not a generic fitness-class version of it.",
+			},
+			{
+				heading: "Four Days A Week",
+				description:
+					"Early-morning and evening classes Monday through Thursday, so training fits around work and school.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "Members training during a group boxing class",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "Coach working pads with a member at First Rule Boxing Club",
+	},
+	process: {
+		title: "What A First Class Looks Like",
+		paragraph:
+			"New members usually start the same way: a group class, a quick rundown of stance and guard, and a class paced to let you follow along without feeling lost.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Show up early",
+				description: "Arrive a few minutes before class so the coach can walk you through the basics.",
+			},
+			{
+				label: "Follow the warm-up",
+				description: "The warm-up doubles as a stance and footwork refresher for first-timers.",
+			},
+			{
+				label: "Work the pads",
+				description: "Pad work is paced to your level — nobody expects a first-timer to keep up with a three-year member.",
+			},
+			{
+				label: "Ask questions",
+				description: "The coach wants questions. Boxing has a learning curve, and asking is faster than guessing.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "First Rule Boxing Club training floor",
+		imageTwo: processAfter,
+		imageTwoAlt: "Sparring practice in the ring",
+	},
+	faq: {
+		title: "Group Boxing Classes FAQs",
+		questions: [
+			{
+				question: "Do I need any experience to join a group class?",
+				answer:
+					"No. Most members start with zero boxing experience. The coach adjusts pace and instruction to the room, so beginners aren't thrown into advanced combinations.",
+			},
+			{
+				question: "What should I bring to my first class?",
+				answer:
+					"Comfortable athletic clothes, closed-toe shoes, and water. We can point you toward gloves and wraps if you don't have them yet — just ask when you call.",
+			},
+			{
+				question: "How often should I come?",
+				answer:
+					"Most members train 2–3 times a week to start. We hold classes Monday through Thursday, early morning and evening, so there's room to build a schedule that fits.",
+			},
+			{
+				question: "Is there sparring in group classes?",
+				answer:
+					"Group classes focus on technique, pad work, and conditioning. Sparring is introduced separately, only when a coach feels a member is ready and interested.",
+			},
+			{
+				question: "Is there a contract to join?",
+				answer:
+					"No long-term contract is required to try a class. Call, text, or send a message through the contact form and we'll get you scheduled.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "Group Boxing Classes",
+	description: service.meta.seoDescription,
+	slug: "group-boxing-classes",
+	serviceType: "Boxing classes",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "Group Boxing Classes", url: "/services/group-boxing-classes/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>

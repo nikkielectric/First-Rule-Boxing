@@ -1,0 +1,170 @@
+---
+// STRONG BY ZUMBA — /services/strong-by-zumba/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/zumba-strong.jpg";
+import introImage from "@assets/images/gallery/gallery-6.jpg";
+import whyImageOne from "@assets/images/gallery/gallery-4.jpg";
+import whyImageTwo from "@assets/images/gallery/gallery-1.jpg";
+import processBefore from "@assets/images/gallery/gallery-5.jpg";
+import processAfter from "@assets/images/gallery/gallery-2.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "STRONG by Zumba Classes in Fort Worth, TX",
+		seoDescription:
+			"High-energy STRONG by Zumba classes in north Fort Worth, TX. Boxing-inspired intervals and dance cardio for full-body conditioning.",
+	},
+	banner: {
+		title: "STRONG by Zumba",
+		description:
+			"Cardio, strength, and music that doesn't quit — a full-body workout without the pad work.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "STRONG by Zumba",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"STRONG by Zumba blends boxing-inspired intervals with dance cardio for a workout that's equal parts fun and genuinely hard. It's a full-body conditioning class — strength, cardio, and coordination — without the pads, wraps, or contact work of our boxing classes.",
+			"It's one of our most community-driven classes. High energy, good music, and a room full of people pushing through the same intervals together — members consistently say it doesn't feel like a workout until the next morning.",
+		],
+		emphasis:
+			"Boxing-inspired intervals, dance cardio, and a room full of energy.",
+		listIntro: "What a STRONG by Zumba class includes:",
+		listItems: [
+			{
+				label: "Dance cardio intervals",
+				description: "High-energy choreography set to music, building cardiovascular conditioning.",
+			},
+			{
+				label: "Boxing-inspired strength work",
+				description: "Intervals that borrow movement patterns from boxing training without pads or contact.",
+			},
+			{
+				label: "Full-body conditioning",
+				description: "A mix that hits cardio, strength, and coordination in the same 45-minute session.",
+			},
+			{
+				label: "No experience needed",
+				description: "No dance or boxing background required — just a willingness to move and keep up with the room.",
+			},
+		],
+		image: introImage,
+		imageAlt: "Sparring practice in the ring",
+	},
+	whyChoose: {
+		title: "Why Members Love STRONG by Zumba",
+		introPara:
+			"It's the class members describe as the one they didn't expect to love. High energy, real community, and a workout that sneaks up on you.",
+		reasons: [
+			{
+				heading: "Full-Body Workout",
+				description: "Cardio, strength, and coordination in one session — no equipment required.",
+			},
+			{
+				heading: "No Experience Needed",
+				description: "No dance background, no boxing background — just show up and move.",
+			},
+			{
+				heading: "Great Community",
+				description: "One of our highest-energy, most social classes on the schedule.",
+			},
+			{
+				heading: "A Lower-Impact Entry Point",
+				description: "A good way to ease into the gym before trying a boxing class, if that feels like a big first step.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "A group boxing class working the heavy bags",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "High-energy conditioning during STRONG by Zumba",
+	},
+	process: {
+		title: "Joining A STRONG by Zumba Class",
+		paragraph:
+			"New members typically just show up to a scheduled class — no prior dance or boxing experience needed, and no separate onboarding required.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Arrive ready to move",
+				description: "Comfortable athletic clothes and shoes with good grip are all you need.",
+			},
+			{
+				label: "Follow the instructor",
+				description: "Choreography is demonstrated and repeated — you'll pick it up as the class goes.",
+			},
+			{
+				label: "Pace yourself",
+				description: "It's okay to modify intensity on your first few classes as you build conditioning.",
+			},
+			{
+				label: "Come back for more",
+				description: "Most members find their rhythm by the second or third class and keep coming back weekly.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "STRONG by Zumba class warm-up at First Rule Boxing Club",
+		imageTwo: processAfter,
+		imageTwoAlt: "Boxing gloves and training equipment",
+	},
+	faq: {
+		title: "STRONG by Zumba FAQs",
+		questions: [
+			{
+				question: "Do I need dance experience for STRONG by Zumba?",
+				answer:
+					"No. Choreography is demonstrated and repeated throughout class — most members pick it up within their first couple of sessions.",
+			},
+			{
+				question: "Is STRONG by Zumba the same as boxing classes?",
+				answer:
+					"No. STRONG by Zumba uses boxing-inspired movement but is dance-cardio based, with no pads, wraps, or contact work involved.",
+			},
+			{
+				question: "What should I wear?",
+				answer:
+					"Comfortable athletic clothes and shoes with good grip for quick directional movement.",
+			},
+			{
+				question: "Can I switch between STRONG by Zumba and boxing classes?",
+				answer:
+					"Yes — many members mix both into their weekly schedule for variety.",
+			},
+			{
+				question: "How do I get started?",
+				answer:
+					"Call, text, or send a message through the contact form and we'll point you to the next scheduled class.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "STRONG by Zumba",
+	description: service.meta.seoDescription,
+	slug: "strong-by-zumba",
+	serviceType: "Group fitness classes",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "STRONG by Zumba", url: "/services/strong-by-zumba/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>

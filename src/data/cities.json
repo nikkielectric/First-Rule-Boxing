@@ -1,0 +1,193 @@
+[
+  {
+    "slug": "fort-worth",
+    "name": "Fort Worth",
+    "state": "TX",
+    "isHomeBase": true,
+    "banner": "fort-worth",
+    "lead": "First Rule Boxing Club is based right here in north Fort Worth, off Harmon Rd near the Alliance corridor. Group boxing, youth classes, personal training, and self-defense — all coached, all in one gym.",
+    "body": [
+      "We're tucked into the Harmon Rd corridor in north Fort Worth, a quick pull off I-35W for members coming from Alliance, Northlake, and the neighborhoods around Eagle Mountain Lake. It's a working gym, not a big-box fitness floor — heavy bags, mitts, a coached class schedule, and an owner who knows your name by week two.",
+      "Most members start the same way: a group class to learn the basics, build some conditioning, and see if boxing is actually for them. From there it's wherever you want to take it — stick with group classes, add 1-on-1 coaching, or just use open gym time to put in extra rounds on your own.",
+      "We run two training windows Monday through Thursday — an early block before the workday starts and an evening block after it ends — so Fort Worth members training around a 9-to-5 or school pickup still have a real way to make class.",
+      "Whether you've never thrown a punch or you boxed years ago and want back in the gym, the first step is the same: show up to a class, meet the coach, and see what the room feels like. That's the only way to know if it's a fit."
+    ],
+    "commonJobs": [
+      "Group boxing classes for beginners building fundamentals from scratch",
+      "Youth boxing for Fort Worth kids and teens who want structure and a coach who knows their name",
+      "1-on-1 personal training for members who want focused, faster progress",
+      "Self-defense training for women, professionals, and first-timers",
+      "STRONG by Zumba for members who want boxing-style conditioning without the sparring",
+      "Open gym access for members drilling on their own schedule"
+    ],
+    "scenarios": [
+      {
+        "title": "A first class for a complete beginner",
+        "description": "Most people who've never boxed start with a group class: stance, jab-cross, mitt work, and a conditioning finisher. Nobody's thrown into sparring on day one — the coach adjusts the pace to the room."
+      },
+      {
+        "title": "A parent signing up a teenager",
+        "description": "Youth members usually start the same way adults do — fundamentals and conditioning in a coached class — with extra attention on discipline, focus, and respect in the gym, not just technique."
+      },
+      {
+        "title": "Someone training around a work schedule",
+        "description": "With an early-morning and an evening block four days a week, members who work a standard day shift can train before work, after work, or both, without missing class."
+      }
+    ],
+    "neighborhoods": [
+      "Alliance / Texas Motor Speedway area",
+      "Eagle Mountain Lake area",
+      "Northlake border",
+      "North Fort Worth near Saginaw",
+      "Harmon Rd / I-35W corridor"
+    ]
+  },
+  {
+    "slug": "keller",
+    "name": "Keller",
+    "state": "TX",
+    "isHomeBase": false,
+    "banner": "keller",
+    "lead": "First Rule Boxing Club trains members from Keller, TX — a short drive up Hwy 377 or I-35W to our north Fort Worth gym for group boxing, youth classes, and personal training.",
+    "body": [
+      "A good share of our roster drives in from Keller — close enough that it's a normal part of a weekday routine, not a special trip. Keller families in particular tend to land in our youth boxing program, looking for a structured, coached activity that builds discipline alongside the fitness.",
+      "For Keller adults, group boxing classes are the usual starting point — a 45-minute class that covers technique, pad work, and conditioning without requiring any prior experience. From there, some members move into 1-on-1 coaching when they want more individual attention on technique.",
+      "Our schedule is built around two training windows Monday through Thursday, early morning and evening, so Keller members commuting toward Fort Worth or working locally can still make class before or after work.",
+      "If you're in Keller and curious whether boxing's a fit — for yourself or your kid — the best next step is just showing up to a class. No contract required to try it."
+    ],
+    "commonJobs": [
+      "Youth boxing for Keller ISD families looking for a structured after-school activity",
+      "Group boxing classes for Keller adults new to the sport",
+      "1-on-1 personal training for members who want focused coaching",
+      "Self-defense training for Keller professionals and beginners",
+      "STRONG by Zumba for members who want boxing-style cardio without contact work"
+    ],
+    "scenarios": [
+      {
+        "title": "A Keller parent looking for a youth activity",
+        "description": "Youth boxing gives kids a coached, physical outlet with real structure — stance, footwork, conditioning, and gym etiquette — in a small-group setting where the coach knows every kid by name."
+      },
+      {
+        "title": "A Keller beginner's first few weeks",
+        "description": "New members typically start with one or two group classes a week to build conditioning and basic technique, then add sessions or move to personal training once they're comfortable with the fundamentals."
+      }
+    ],
+    "neighborhoods": [
+      "Keller Town Center",
+      "Bear Creek area",
+      "Keller ISD area",
+      "Hwy 377 corridor toward Fort Worth"
+    ]
+  },
+  {
+    "slug": "saginaw",
+    "name": "Saginaw",
+    "state": "TX",
+    "isHomeBase": false,
+    "banner": "saginaw",
+    "lead": "First Rule Boxing Club is practically next door to Saginaw, TX — a few minutes off Business 287 to our north Fort Worth gym for boxing classes, youth training, and personal coaching.",
+    "body": [
+      "Saginaw sits right against our north Fort Worth location, and it's one of the closest drives on our roster. That short commute makes it easy for Saginaw members to make both of our Monday–Thursday training windows — early morning before work or school, and evening after.",
+      "We see a mix of everything from Saginaw: adults starting group boxing classes for the fitness and the stress relief, parents enrolling kids in youth boxing for the structure, and a handful of members who train 1-on-1 to work specifically on technique.",
+      "STRONG by Zumba is also a regular draw for Saginaw members who want a high-energy, music-driven workout without the pad work or contact — same gym, different kind of sweat.",
+      "If Saginaw is home and you're deciding whether to make the short drive over, the easiest way to find out is to come watch or join a class. The gym and the coach will tell you more than any website can."
+    ],
+    "commonJobs": [
+      "Group boxing classes for Saginaw members close enough for a quick commute",
+      "Youth boxing for Saginaw kids and teens",
+      "1-on-1 personal training for focused, individual coaching",
+      "Self-defense training for Saginaw professionals and beginners",
+      "STRONG by Zumba for a boxing-adjacent cardio and strength workout"
+    ],
+    "scenarios": [
+      {
+        "title": "A short-commute Saginaw member",
+        "description": "Being this close means Saginaw members can realistically hit both training windows in the same week — an early class before work and an evening class after — without the drive eating into the schedule."
+      },
+      {
+        "title": "A Saginaw member trying STRONG by Zumba first",
+        "description": "Some members ease in through STRONG by Zumba before moving to boxing classes — same gym, same coach, a lower-intensity entry point into the training culture."
+      }
+    ],
+    "neighborhoods": [
+      "Saginaw Towne Crossing area",
+      "Boswell area",
+      "Business 287 corridor",
+      "Blue Mound border"
+    ]
+  },
+  {
+    "slug": "haslet",
+    "name": "Haslet",
+    "state": "TX",
+    "isHomeBase": false,
+    "banner": "haslet",
+    "lead": "First Rule Boxing Club serves Haslet, TX from our north Fort Worth gym — an easy pull off 156 or I-35W for group boxing, youth classes, and personal training.",
+    "body": [
+      "Haslet has grown fast, and a lot of new residents are still figuring out where to train. We're a straightforward drive from most of Haslet — close enough that members treat the gym as a regular part of the week, not an occasional trip.",
+      "Group boxing classes are where most Haslet members start: 45 minutes of technique, pad work, and conditioning with no experience required. Parents in Haslet also make up a solid share of our youth boxing roster, looking for a coached, in-person activity for their kids.",
+      "We hold two training blocks Monday through Thursday, early morning and evening, which tends to work well for Haslet families balancing school drop-off and pickup with training time.",
+      "If you're new to the area and looking for a gym that actually coaches rather than just hands you a key fob, come try a class. That's the best way to see if First Rule is the right fit."
+    ],
+    "commonJobs": [
+      "Group boxing classes for Haslet beginners",
+      "Youth boxing for Haslet families looking for a coached after-school option",
+      "1-on-1 personal training for individualized coaching",
+      "Self-defense training for Haslet professionals and beginners",
+      "STRONG by Zumba for a lower-impact, high-energy alternative to boxing classes"
+    ],
+    "scenarios": [
+      {
+        "title": "A newer Haslet resident finding a gym",
+        "description": "New-to-the-area members often start by just sitting in on a class to see the coaching style and the gym culture before committing to a schedule."
+      },
+      {
+        "title": "A Haslet family building training into the week",
+        "description": "Families often split the schedule — a parent in the evening class, a kid in youth boxing earlier in the week — using the same two-day structure to keep training manageable."
+      }
+    ],
+    "neighborhoods": [
+      "Haslet Town Center area",
+      "FM 156 corridor",
+      "Eagle Mountain area",
+      "I-35W / Golden Triangle area"
+    ]
+  },
+  {
+    "slug": "roanoke",
+    "name": "Roanoke",
+    "state": "TX",
+    "isHomeBase": false,
+    "banner": "roanoke",
+    "lead": "First Rule Boxing Club trains members from Roanoke, TX — a short drive down 377 or 114 to our north Fort Worth gym for boxing classes, youth training, and self-defense.",
+    "body": [
+      "Roanoke members make the drive down toward Fort Worth for a gym that's built around actual coaching, not just open floor time. It's a reasonable commute from most of Roanoke, and it tends to fit naturally into an evening routine.",
+      "Group boxing classes are the most common starting point for Roanoke adults — technique, pad work, and conditioning in a 45-minute class. We also see Roanoke parents enrolling kids in youth boxing, often alongside other after-school activities in the area.",
+      "Self-defense training is another regular draw from Roanoke, especially among members who want practical, usable skills rather than a fitness-only class.",
+      "If you're in Roanoke and weighing whether the drive is worth it, most members will tell you the coaching and the gym culture are the reason they keep coming back — not just the convenience."
+    ],
+    "commonJobs": [
+      "Group boxing classes for Roanoke adults",
+      "Youth boxing for Roanoke kids and teens",
+      "Self-defense training for Roanoke professionals and beginners",
+      "1-on-1 personal training for focused coaching",
+      "STRONG by Zumba for boxing-inspired cardio and strength conditioning"
+    ],
+    "scenarios": [
+      {
+        "title": "A Roanoke member prioritizing coaching over convenience",
+        "description": "Members who commute in from Roanoke are usually choosing the gym for the coaching style first and the drive second — they've typically tried something closer to home before finding First Rule."
+      },
+      {
+        "title": "A Roanoke professional starting self-defense training",
+        "description": "Self-defense students often start with one-on-one sessions to build comfort with the basics before joining a group class."
+      }
+    ],
+    "neighborhoods": [
+      "Historic downtown Roanoke area",
+      "Byron Nelson / Trophy Club area",
+      "Hwy 377 corridor",
+      "Westlake border"
+    ]
+  }
+]

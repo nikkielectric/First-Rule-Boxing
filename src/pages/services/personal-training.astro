@@ -1,0 +1,170 @@
+---
+// 1-ON-1 PERSONAL TRAINING — /services/personal-training/
+import { getImage } from "astro:assets";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import {
+	buildServiceSchema,
+	buildFaqSchema,
+	buildBreadcrumbSchema,
+} from "@js/serviceSchema.js";
+
+import bannerImage from "@assets/images/programs/personal-training.jpg";
+import introImage from "@assets/images/gallery/gallery-5.jpg";
+import whyImageOne from "@assets/images/gallery/gallery-6.jpg";
+import whyImageTwo from "@assets/images/gallery/gallery-3.jpg";
+import processBefore from "@assets/images/about/about-training.jpg";
+import processAfter from "@assets/images/gallery/gallery-1.jpg";
+
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+const service = {
+	meta: {
+		title: "1-on-1 Personal Training in Fort Worth, TX",
+		seoDescription:
+			"Private boxing coaching in north Fort Worth, TX. One coach, one fighter — technique and conditioning built around your goals and your schedule.",
+	},
+	banner: {
+		title: "1-on-1 Personal Training",
+		description:
+			"One coach, one fighter, zero wasted reps — private boxing instruction built around your goals.",
+		image: optimizedBanner,
+	},
+	intro: {
+		titleHighlight: "Personal Training",
+		titleSuffix: " in Fort Worth, TX",
+		intro: [
+			"Group classes work well for most people, but some members want more individual attention — faster correction, a program built around a specific goal, or just a schedule that doesn't line up with group class times. That's what 1-on-1 coaching is for.",
+			"A private session is built around you: technique you're working on, a weakness the coach wants to address, or conditioning tailored to where you're starting from. It's the same coaching style members have trained under for years, just with the full session focused on one person.",
+		],
+		emphasis:
+			"Private sessions, built around your goals, your pace, and your schedule.",
+		listIntro: "1-on-1 sessions are a good fit if you:",
+		listItems: [
+			{
+				label: "Want faster progress",
+				description: "A full session of individual correction moves technique forward faster than group pace alone.",
+			},
+			{
+				label: "Have a specific goal",
+				description: "Training for a fight, an event, or just a personal milestone — sessions are built around it.",
+			},
+			{
+				label: "Need schedule flexibility",
+				description: "Private sessions can work around a schedule that doesn't fit group class times.",
+			},
+			{
+				label: "Want to supplement group classes",
+				description: "Many members add 1-on-1 sessions alongside group classes to work on specific weak points.",
+			},
+		],
+		image: introImage,
+		imageAlt: "Coach working pads one-on-one with a member at First Rule Boxing Club",
+	},
+	whyChoose: {
+		title: "Why Train 1-on-1 Here",
+		introPara:
+			"The value of private coaching is the coach, not the hour. Members who've trained here for years keep coming back to the same hands-on style — full attention, real correction, every session.",
+		reasons: [
+			{
+				heading: "Full Attention",
+				description: "No splitting focus across a room — every minute is about your technique and your goals.",
+			},
+			{
+				heading: "A Program Built Around You",
+				description: "Sessions adapt to what you need, whether that's fundamentals, conditioning, or fight prep.",
+			},
+			{
+				heading: "Proven Coaching Style",
+				description: "The same hands-on correction and attention to detail used in every group class, focused entirely on you.",
+			},
+			{
+				heading: "Flexible Scheduling",
+				description: "Private sessions can be built around a schedule that group class times don't accommodate.",
+			},
+		],
+		imageOne: whyImageOne,
+		imageOneAlt: "Sparring practice in the ring",
+		imageTwo: whyImageTwo,
+		imageTwoAlt: "Boxing gloves on the ring ropes",
+	},
+	process: {
+		title: "Starting 1-on-1 Training",
+		paragraph:
+			"Private sessions start with a conversation about your goals and experience level, then a session built around where you're starting from.",
+		headingThree: "What to expect",
+		bullets: [
+			{
+				label: "Talk goals first",
+				description: "Tell us what you're training for — fitness, technique, fight prep, or something else entirely.",
+			},
+			{
+				label: "Assess where you're at",
+				description: "The first session usually includes a read on your current technique and conditioning level.",
+			},
+			{
+				label: "Build a plan",
+				description: "Sessions are structured around what will move the needle fastest for your specific goals.",
+			},
+			{
+				label: "Adjust as you go",
+				description: "The plan isn't fixed — it evolves as your technique and conditioning improve.",
+			},
+		],
+		imageOne: processBefore,
+		imageOneAlt: "First Rule Boxing Club training floor",
+		imageTwo: processAfter,
+		imageTwoAlt: "A member training during a private session",
+	},
+	faq: {
+		title: "Personal Training FAQs",
+		questions: [
+			{
+				question: "Do I need group class experience before starting 1-on-1 training?",
+				answer:
+					"No. Some members start with private sessions before ever joining a group class — it's a good option if you want individual attention from day one.",
+			},
+			{
+				question: "Can I combine group classes and personal training?",
+				answer:
+					"Yes. Many members use group classes for conditioning and community, and add 1-on-1 sessions to work on specific technique.",
+			},
+			{
+				question: "How do I schedule a session?",
+				answer:
+					"Call, text, or message us through the contact form, and we'll work out a time that fits your schedule.",
+			},
+			{
+				question: "What should I bring to a session?",
+				answer:
+					"Comfortable athletic clothes and closed-toe shoes. We'll let you know if anything else is needed based on your goals.",
+			},
+			{
+				question: "Is personal training good for complete beginners?",
+				answer:
+					"Yes — it's actually a strong option for beginners who want individual attention on fundamentals before jumping into a group setting.",
+			},
+		],
+	},
+};
+
+const serviceSchema = buildServiceSchema({
+	name: "1-on-1 Personal Training",
+	description: service.meta.seoDescription,
+	slug: "personal-training",
+	serviceType: "Personal training",
+});
+const faqSchema = buildFaqSchema(service.faq.questions);
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: "/" },
+	{ name: "Services", url: "/services/" },
+	{ name: "1-on-1 Personal Training", url: "/services/personal-training/" },
+]);
+---
+
+<ServiceLayout {...service}>
+	<Fragment slot="schema">
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+</ServiceLayout>
