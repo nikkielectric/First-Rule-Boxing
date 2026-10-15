@@ -274,7 +274,7 @@ import { BUSINESS } from "@data/client";
         /* prevents padding from affecting height and width */
         box-sizing: border-box;
         padding: (16/16rem) (24/16rem);
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: var(--secondary);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -954,11 +954,11 @@ import { BUSINESS } from "@data/client";
         z-index: 1;
 
         &:before {
-          /* subtle bar separator */
+          /* blue bar separator */
           content: "";
           width: 100vw;
           height: 100%;
-          background: rgba(255, 255, 255, 0.04);
+          background: var(--secondary);
           opacity: 1;
           display: block;
           position: absolute;
