@@ -1,0 +1,342 @@
+---
+// Utils
+import { getImage } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Banner from "@components/Banner/Banner.astro";
+import CTASimple from "@components/CTA/CTASimple.astro";
+import { BUSINESS } from "@data/client";
+
+// Images
+import bannerImage from "@assets/images/banners/generic.jpg";
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+
+type ClassSlot = { time: string; label: string; accent?: boolean };
+type DayRow = { day: string; tag?: string; classes: ClassSlot[] };
+
+const morning: DayRow[] = [
+	{
+		day: "Tuesday",
+		classes: [
+			{ time: "5:30 AM", label: "Boxing" },
+			{ time: "6:30 AM", label: "STRONG by Zumba", accent: true },
+		],
+	},
+	{ day: "Wednesday", classes: [{ time: "5:30 AM", label: "Boxing" }] },
+	{ day: "Thursday", classes: [{ time: "5:30 AM", label: "Boxing" }] },
+];
+
+const evening: DayRow[] = [
+	{
+		day: "Monday",
+		classes: [
+			{ time: "6:00 PM", label: "Youth Boxing" },
+			{ time: "7:00 PM", label: "Adult Boxing" },
+		],
+	},
+	{
+		day: "Tuesday",
+		tag: "Advanced Classes",
+		classes: [
+			{ time: "6:00 PM", label: "Youth Boxing" },
+			{ time: "7:00 PM", label: "Adult Boxing" },
+		],
+	},
+	{
+		day: "Wednesday",
+		classes: [
+			{ time: "6:00 PM", label: "Youth Boxing" },
+			{ time: "7:00 PM", label: "Adult Boxing" },
+		],
+	},
+	{
+		day: "Thursday",
+		tag: "Advanced Classes",
+		classes: [
+			{ time: "6:00 PM", label: "Youth Boxing" },
+			{ time: "7:00 PM", label: "Adult Boxing" },
+		],
+	},
+];
+---
+
+<BaseLayout
+	title="Class Schedule"
+	description="First Rule Boxing Club's weekly class schedule in Fort Worth, TX — morning and evening boxing, youth boxing, and STRONG by Zumba."
+	heroImage={optimizedBanner}
+>
+	<Banner
+		title="Class Schedule"
+		description="Morning and evening classes, Monday through Thursday. Closed Friday – Sunday."
+		image={optimizedBanner}
+	/>
+
+	<section id="schedule-grid">
+		<div class="cs-container">
+			<div class="cs-content">
+				<span class="cs-topper">Weekly Schedule</span>
+				<h2 class="cs-title">Find Your Class Time</h2>
+				<p class="cs-text">
+					We train {BUSINESS.hours.display} — {BUSINESS.hours.closedDisplay}.
+					No experience required for any class on the schedule.
+				</p>
+			</div>
+
+			<div class="cs-columns">
+				<div class="cs-column">
+					<h3 class="cs-column-title cs-column-title--morning">Morning</h3>
+					<ul class="cs-day-list">
+						{
+							morning.map((row) => (
+								<li class="cs-day-row">
+									<div class="cs-day-head">
+										<span class="cs-day-name">{row.day}</span>
+										{row.tag && <span class="cs-day-tag">{row.tag}</span>}
+									</div>
+									<ul class="cs-class-list">
+										{row.classes.map((c) => (
+											<li class="cs-class-item">
+												<span class="cs-time">{c.time}</span>
+												<span class:list={["cs-class", { "cs-class--accent": c.accent }]}>
+													{c.label}
+												</span>
+											</li>
+										))}
+									</ul>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div class="cs-column">
+					<h3 class="cs-column-title cs-column-title--evening">Evening</h3>
+					<ul class="cs-day-list">
+						{
+							evening.map((row) => (
+								<li class="cs-day-row">
+									<div class="cs-day-head">
+										<span class="cs-day-name">{row.day}</span>
+										{row.tag && <span class="cs-day-tag">{row.tag}</span>}
+									</div>
+									<ul class="cs-class-list">
+										{row.classes.map((c) => (
+											<li class="cs-class-item">
+												<span class="cs-time">{c.time}</span>
+												<span class:list={["cs-class", { "cs-class--accent": c.accent }]}>
+													{c.label}
+												</span>
+											</li>
+										))}
+									</ul>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+
+			<p class="cs-schedule-note">
+				Schedule may shift from week to week — call or text {BUSINESS.phoneFormatted} to
+				confirm before your first class.
+			</p>
+
+			<a href={BUSINESS.bookingUrl} target="_blank" rel="noopener" class="cs-button-solid"
+				>Book A Class</a
+			>
+		</div>
+	</section>
+
+	<CTASimple />
+</BaseLayout>
+
+<style lang="less">
+	@media only screen and (min-width: 0rem) {
+		#schedule-grid {
+			padding: var(--sectionPadding);
+			background-color: #fff;
+
+			.cs-container {
+				width: 100%;
+				max-width: (1100/16rem);
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: clamp(2.5rem, 5vw, 3.5rem);
+			}
+
+			.cs-content {
+				max-width: (740/16rem);
+			}
+
+			.cs-topper {
+				color: var(--secondary);
+			}
+
+			.cs-title {
+				font-size: clamp(2rem, 4vw, 3rem);
+				font-family: var(--headerFont);
+				font-weight: 700;
+				text-transform: uppercase;
+				line-height: 1.2em;
+				margin: (8/16rem) 0 (16/16rem) 0;
+				color: var(--headerColor);
+			}
+
+			.cs-text {
+				font-size: var(--bodyFontSize);
+				line-height: 1.5em;
+				color: var(--bodyTextColor);
+				margin: 0;
+			}
+
+			.cs-columns {
+				width: 100%;
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: clamp(2rem, 4vw, 3rem);
+			}
+
+			.cs-column-title {
+				font-family: var(--headerFont);
+				font-size: clamp(1.5rem, 3vw, 2rem);
+				font-weight: 700;
+				text-transform: uppercase;
+				margin: 0 0 (20/16rem) 0;
+				padding-bottom: (12/16rem);
+				border-bottom: 4px solid var(--primary);
+				color: var(--headerColor);
+
+				&--evening {
+					border-bottom-color: var(--secondary);
+				}
+			}
+
+			.cs-day-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: (12/16rem);
+			}
+
+			.cs-day-row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: (12/16rem);
+				padding: (16/16rem) (20/16rem);
+				background-color: var(--bgLight);
+				border-left: 4px solid var(--headerColor);
+			}
+
+			.cs-day-head {
+				display: flex;
+				flex-direction: column;
+				gap: (4/16rem);
+				min-width: (110/16rem);
+			}
+
+			.cs-day-name {
+				font-family: var(--headerFont);
+				font-weight: 700;
+				text-transform: uppercase;
+				font-size: (18/16rem);
+				color: var(--headerColor);
+			}
+
+			.cs-day-tag {
+				font-family: var(--headerFont);
+				font-size: (12/16rem);
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--primary);
+			}
+
+			.cs-class-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: (4/16rem);
+			}
+
+			.cs-class-item {
+				display: flex;
+				align-items: baseline;
+				gap: (10/16rem);
+			}
+
+			.cs-time {
+				font-family: var(--headerFont);
+				font-weight: 700;
+				font-size: (14/16rem);
+				color: var(--bodyTextColor);
+				min-width: (72/16rem);
+			}
+
+			.cs-class {
+				font-family: var(--headerFont);
+				font-weight: 700;
+				text-transform: uppercase;
+				font-size: (15/16rem);
+				color: var(--primary);
+
+				&--accent {
+					color: var(--secondary);
+				}
+			}
+
+			.cs-schedule-note {
+				font-size: (14/16rem);
+				line-height: 1.5em;
+				color: var(--bodyTextColor);
+				opacity: 0.8;
+				margin: 0;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#schedule-grid {
+			.cs-columns {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
+
+	@media only screen and (min-width: 0rem) {
+		body.dark-mode {
+			#schedule-grid {
+				background-color: var(--dark);
+
+				.cs-title,
+				.cs-column-title,
+				.cs-day-name {
+					color: var(--bodyTextColorWhite);
+				}
+
+				.cs-text,
+				.cs-schedule-note {
+					color: var(--bodyTextColorWhite);
+					opacity: 0.8;
+				}
+
+				.cs-day-row {
+					background-color: var(--medium);
+				}
+
+				.cs-time {
+					color: var(--bodyTextColorWhite);
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+</style>

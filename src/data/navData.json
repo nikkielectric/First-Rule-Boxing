@@ -22,6 +22,16 @@
     ]
   },
   {
+    "key": "Schedule",
+    "url": "/schedule/",
+    "children": []
+  },
+  {
+    "key": "Merch",
+    "url": "/merch/",
+    "children": []
+  },
+  {
     "key": "Service Areas",
     "url": "/service-areas/",
     "children": [

@@ -1,0 +1,164 @@
+---
+// Utils
+import { getImage, Picture } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Banner from "@components/Banner/Banner.astro";
+import CTASimple from "@components/CTA/CTASimple.astro";
+import { BUSINESS } from "@data/client";
+
+// Images
+import bannerImage from "@assets/images/banners/generic.jpg";
+import merchFlyer from "@assets/images/merch/merch-flyer.jpg";
+const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
+---
+
+<BaseLayout
+	title="Merch"
+	description="First Rule Boxing Club gear — tees, hoodies, gloves, handwraps, and more. Fort Worth, TX."
+	heroImage={optimizedBanner}
+>
+	<Banner
+		title="Merch"
+		description="Gear up with First Rule Boxing Club apparel and equipment."
+		image={optimizedBanner}
+	/>
+
+	<section id="merch-section">
+		<div class="cs-container">
+			<Picture
+				src={merchFlyer}
+				alt="First Rule Boxing Club merch — t-shirts, hoodies, snacks, boxing gloves, handwraps, and jump ropes"
+				widths={[480, 960, 1120]}
+				sizes="(min-width: 64rem) 480px, 90vw"
+				formats={["avif", "webp"]}
+				pictureAttributes={{ class: "cs-picture" }}
+				loading="lazy"
+			/>
+			<div class="cs-content">
+				<span class="cs-topper">Gear Up</span>
+				<h2 class="cs-title">First Rule Merch</h2>
+				<p class="cs-text">
+					Tees, hoodies, gloves, handwraps, jump ropes, and gym snacks —
+					everything you need to train looking like you belong here. Pick up
+					gear at the front desk or order online once our shop link goes
+					live.
+				</p>
+				<span class="cs-button-solid cs-button-disabled" aria-disabled="true">
+					Shop Coming Soon
+				</span>
+				<p class="cs-note">
+					Online ordering isn't live yet — call or text {BUSINESS.phoneFormatted}
+					{" "}or stop by the gym to grab gear in person.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<CTASimple />
+</BaseLayout>
+
+<style lang="less">
+	@media only screen and (min-width: 0rem) {
+		#merch-section {
+			padding: var(--sectionPadding);
+			background-color: #fff;
+
+			.cs-container {
+				width: 100%;
+				max-width: (1100/16rem);
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: clamp(2.5rem, 5vw, 3.5rem);
+			}
+
+			.cs-picture {
+				width: 100%;
+				max-width: (420/16rem);
+				display: block;
+				box-shadow: 0 (8/16rem) (32/16rem) rgba(0, 0, 0, 0.15);
+
+				img {
+					width: 100%;
+					height: auto;
+					display: block;
+				}
+			}
+
+			.cs-content {
+				width: 100%;
+				max-width: (560/16rem);
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.cs-topper {
+				color: var(--secondary);
+			}
+
+			.cs-title {
+				font-size: clamp(2rem, 4vw, 3rem);
+				font-family: var(--headerFont);
+				font-weight: 700;
+				text-transform: uppercase;
+				line-height: 1.2em;
+				margin: (8/16rem) 0 (16/16rem) 0;
+				color: var(--headerColor);
+			}
+
+			.cs-text {
+				font-size: var(--bodyFontSize);
+				line-height: 1.5em;
+				color: var(--bodyTextColor);
+				margin: 0 0 (24/16rem) 0;
+			}
+
+			.cs-button-disabled {
+				cursor: not-allowed;
+				opacity: 0.55;
+				pointer-events: none;
+			}
+
+			.cs-note {
+				font-size: (14/16rem);
+				line-height: 1.5em;
+				color: var(--bodyTextColor);
+				opacity: 0.8;
+				margin: (12/16rem) 0 0 0;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 64rem) {
+		#merch-section {
+			.cs-container {
+				flex-direction: row;
+				align-items: flex-start;
+				justify-content: center;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 0rem) {
+		body.dark-mode {
+			#merch-section {
+				background-color: var(--dark);
+
+				.cs-title {
+					color: var(--bodyTextColorWhite);
+				}
+
+				.cs-text,
+				.cs-note {
+					color: var(--bodyTextColorWhite);
+					opacity: 0.85;
+				}
+			}
+		}
+	}
+</style>

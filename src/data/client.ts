@@ -29,14 +29,21 @@ export const BUSINESS = {
 		mapLink: "https://maps.google.com/?q=10027+Harmon+Rd+Suite+127+Fort+Worth+TX+76177",
 	},
 	hours: {
-		display: "Mon – Thu: 6:00–7:00 AM & 6:00–8:00 PM",
+		display: "Tue–Thu: 5:30 AM · Mon–Thu: 6:00–8:00 PM",
 		closedDisplay: "Closed Friday – Sunday",
-		// Two training blocks per day, four days a week — see openingHoursSpecification in localBusinessSchema.js
+		// Three training blocks: morning boxing (Tue–Thu), the Tuesday-only
+		// Zumba add-on right after it, and evening boxing (Mon–Thu). See
+		// openingHoursSpecification in localBusinessSchema.js.
 		blocks: [
 			{
-				days: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-				opens: "06:00",
-				closes: "07:00",
+				days: ["Tuesday", "Wednesday", "Thursday"],
+				opens: "05:30",
+				closes: "06:30",
+			},
+			{
+				days: ["Tuesday"],
+				opens: "06:30",
+				closes: "07:30",
 			},
 			{
 				days: ["Monday", "Tuesday", "Wednesday", "Thursday"],
