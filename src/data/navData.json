@@ -41,10 +41,5 @@
       { "key": "Haslet, TX", "url": "/haslet/" },
       { "key": "Roanoke, TX", "url": "/roanoke/" }
     ]
-  },
-  {
-    "key": "Contact",
-    "url": "/contact/",
-    "children": []
   }
 ]

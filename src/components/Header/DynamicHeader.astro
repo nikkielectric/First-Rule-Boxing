@@ -154,22 +154,10 @@ import { BUSINESS } from "@data/client";
               </li>
             ))
           }
-          <li class="cs-li cs-hide-on-desktop">
-            <a
-              href="/contact/"
-              class:list={[
-                "cs-li-link",
-                { "cs-active": Astro.url.pathname === "/contact/" },
-              ]}
-              aria-current={isCurrentPage(Astro.url.pathname, "/contact/")}
-            >
-              Contact
-            </a>
-          </li>
         </ul>
       </div>
     </nav>
-    <a href={BUSINESS.bookingUrl} target="_blank" rel="noopener" class="cs-button-solid cs-nav-button">Join Now</a>
+    <a href="/contact/" class="cs-button-solid cs-nav-button">Contact</a>
     <!--Dark Mode toggle: remove component if you don't want to enable a dark mode toggle-->
     <DarkModeToggle />
   </div>
