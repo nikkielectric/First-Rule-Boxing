@@ -1,11 +1,10 @@
-// Single source of truth for First Rule Boxing Club's 6 programs.
+// Single source of truth for First Rule Boxing Club's 5 programs.
 // Used by: home page Services overview, the contact form's service dropdown,
 // every dynamic [city].astro location page, and the footer/nav.
 
 import groupBoxingImg from "@assets/images/programs/group-boxing.jpg";
 import youthBoxingImg from "@assets/images/programs/youth-boxing.jpg";
 import personalTrainingImg from "@assets/images/programs/personal-training.jpg";
-import selfDefenseImg from "@assets/images/programs/self-defense.jpg";
 import strongByZumbaImg from "@assets/images/programs/zumba-strong.jpg";
 import openGymImg from "@assets/images/programs/open-gym.jpg";
 
@@ -45,15 +44,6 @@ export const SERVICES: ServiceSummary[] = [
 		tagline: "One coach, one fighter, zero wasted reps.",
 		description:
 			"Private boxing instruction built around your goals, your pace, and your schedule — the same hands-on coaching style that's kept members training here for years.",
-	},
-	{
-		slug: "self-defense",
-		title: "Self-Defense Training",
-		href: "/services/self-defense/",
-		image: selfDefenseImg,
-		tagline: "Practical skills for real situations.",
-		description:
-			"One-on-one or small-group self-defense training built for women, professionals, and beginners — straightforward technique you can actually use, taught without the ego.",
 	},
 	{
 		slug: "strong-by-zumba",
