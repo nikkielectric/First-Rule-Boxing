@@ -56,17 +56,41 @@ const { videoSrc, posterSrc } = Astro.props as Props;
 
   <div class="cs-background">
     <video
+      id="hero-video"
       src={videoSrc}
       poster={posterSrc}
       autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      webkit-playsinline="true"
+      preload="auto"
       aria-hidden="true"
     />
   </div>
 </section>
+
+<script>
+  // iOS sometimes blocks the declarative autoplay (Low Power Mode, Low Data
+  // Mode, or the "Auto-Play Video Previews" accessibility setting). Retry
+  // play() explicitly, and once more on the first touch/click if it's still
+  // blocked — a direct response to a user gesture is allowed even when
+  // autoplay itself isn't.
+  const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+  if (video) {
+    video.muted = true;
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+
+    const retryOnGesture = () => {
+      tryPlay();
+      document.removeEventListener("touchstart", retryOnGesture);
+      document.removeEventListener("click", retryOnGesture);
+    };
+    document.addEventListener("touchstart", retryOnGesture, { once: true, passive: true });
+    document.addEventListener("click", retryOnGesture, { once: true });
+  }
+</script>
 
 <style lang="less">
   /*-- -------------------------- -->
