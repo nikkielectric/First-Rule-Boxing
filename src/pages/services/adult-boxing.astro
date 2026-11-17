@@ -1,5 +1,5 @@
 ---
-// GROUP BOXING CLASSES — /services/group-boxing-classes/
+// ADULT BOXING — /services/adult-boxing/
 import { getImage } from "astro:assets";
 import ServiceLayout from "@layouts/ServiceLayout.astro";
 import {
@@ -19,21 +19,21 @@ const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
 
 const service = {
 	meta: {
-		title: "Group Boxing Classes in Fort Worth, TX",
+		title: "Adult Boxing Classes in Fort Worth, TX",
 		seoDescription:
-			"Coached 60-minute group boxing classes in north Fort Worth, TX. Technique, pad work, and conditioning for every level — no experience required.",
+			"Coached 60-minute adult boxing classes in north Fort Worth, TX. Technique, pad work, and conditioning for every level — no experience required.",
 	},
 	banner: {
-		title: "Group Boxing Classes",
+		title: "Adult Boxing Classes",
 		description:
 			"60 minutes of technique, pad work, and conditioning — coached, every class, no experience required.",
 		image: optimizedBanner,
 	},
 	intro: {
-		titleHighlight: "Group Boxing",
+		titleHighlight: "Adult Boxing Classes",
 		titleSuffix: " in Fort Worth, TX",
 		intro: [
-			"Group boxing classes are where most members start — and where a lot of them stay. Each class is built around real technique: stance, footwork, combinations, and pad work, led by a coach who's watching the room, not just calling out a clock.",
+			"Adult boxing classes are where most members start — and where a lot of them stay. Each class is built around real technique: stance, footwork, combinations, and pad work, led by a coach who's watching the room, not just calling out a clock.",
 			"It's conditioning too, but it's not a cardio class wearing boxing as a costume. You'll leave tired, but you'll also leave having learned something — a cleaner jab, better guard position, footwork that actually moves you off the center line.",
 		],
 		emphasis:
@@ -62,7 +62,7 @@ const service = {
 			},
 		],
 		image: introImage,
-		imageAlt: "A group boxing class working the heavy bags",
+		imageAlt: "An adult boxing class working the heavy bags",
 	},
 	whyChoose: {
 		title: "Why Train With Us",
@@ -91,7 +91,7 @@ const service = {
 			},
 		],
 		imageOne: whyImageOne,
-		imageOneAlt: "Members training during a group boxing class",
+		imageOneAlt: "Members training during an adult boxing class",
 		imageTwo: whyImageTwo,
 		imageTwoAlt: "Coach working pads with a member at First Rule Boxing Club",
 	},
@@ -124,7 +124,7 @@ const service = {
 		imageTwoAlt: "Sparring practice in the ring",
 	},
 	faq: {
-		title: "Group Boxing Classes FAQs",
+		title: "Adult Boxing Classes FAQs",
 		questions: [
 			{
 				question: "Do I need any experience to join a group class?",
@@ -156,16 +156,16 @@ const service = {
 };
 
 const serviceSchema = buildServiceSchema({
-	name: "Group Boxing Classes",
+	name: "Adult Boxing",
 	description: service.meta.seoDescription,
-	slug: "group-boxing-classes",
+	slug: "adult-boxing",
 	serviceType: "Boxing classes",
 });
 const faqSchema = buildFaqSchema(service.faq.questions);
 const breadcrumbSchema = buildBreadcrumbSchema([
 	{ name: "Home", url: "/" },
 	{ name: "Services", url: "/services/" },
-	{ name: "Group Boxing Classes", url: "/services/group-boxing-classes/" },
+	{ name: "Adult Boxing", url: "/services/adult-boxing/" },
 ]);
 ---
 

@@ -18,17 +18,17 @@ export type ServiceSummary = {
 
 export const SERVICES: ServiceSummary[] = [
 	{
-		slug: "group-boxing-classes",
-		title: "Group Boxing Classes",
-		href: "/services/group-boxing-classes/",
+		slug: "adult-boxing",
+		title: "Adult Boxing Classes",
+		href: "/services/adult-boxing/",
 		image: groupBoxingImg,
 		tagline: "60 minutes. Pads, bags, and real technique.",
 		description:
-			"High-intensity group boxing for every level — footwork, combinations, and conditioning led by a coach who corrects your form, not just your effort. No experience required.",
+			"High-intensity adult boxing for every level — footwork, combinations, and conditioning led by a coach who corrects your form, not just your effort. No experience required.",
 	},
 	{
 		slug: "youth-boxing",
-		title: "Youth Boxing",
+		title: "Youth Boxing Classes",
 		href: "/services/youth-boxing/",
 		image: youthBoxingImg,
 		tagline: "Discipline and confidence, one round at a time.",

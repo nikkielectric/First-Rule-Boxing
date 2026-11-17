@@ -3,3 +3,5 @@
 /services/self-defense   /  301
 /services/open-gym-membership/  /  301
 /services/open-gym-membership   /  301
+/services/group-boxing-classes/  /services/adult-boxing/  301
+/services/group-boxing-classes   /services/adult-boxing/  301

@@ -19,18 +19,18 @@ const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
 
 const service = {
 	meta: {
-		title: "Youth Boxing in Fort Worth, TX",
+		title: "Youth Boxing Classes in Fort Worth, TX",
 		seoDescription:
 			"Coached youth boxing for kids and teens in north Fort Worth, TX. Discipline, confidence, and real technique in a family-oriented gym.",
 	},
 	banner: {
-		title: "Youth Boxing",
+		title: "Youth Boxing Classes",
 		description:
 			"Discipline and confidence, one round at a time — coached boxing for kids and teens.",
 		image: optimizedBanner,
 	},
 	intro: {
-		titleHighlight: "Youth Boxing",
+		titleHighlight: "Youth Boxing Classes",
 		titleSuffix: " in Fort Worth, TX",
 		intro: [
 			"Youth boxing isn't just a kids' version of the adult class — it's built around what actually helps young members: structure, repetition, and a coach who holds them to a standard. Stance, footwork, and basic combinations are taught the same way they'd be taught to an adult, just at a pace and contact level that fits their age and experience.",
@@ -116,7 +116,7 @@ const service = {
 		imageTwoAlt: "Youth boxing class at First Rule Boxing Club",
 	},
 	faq: {
-		title: "Youth Boxing FAQs",
+		title: "Youth Boxing Classes FAQs",
 		questions: [
 			{
 				question: "What age does youth boxing start at?",
@@ -148,7 +148,7 @@ const service = {
 };
 
 const serviceSchema = buildServiceSchema({
-	name: "Youth Boxing",
+	name: "Youth Boxing Classes",
 	description: service.meta.seoDescription,
 	slug: "youth-boxing",
 	serviceType: "Youth boxing classes",
@@ -157,7 +157,7 @@ const faqSchema = buildFaqSchema(service.faq.questions);
 const breadcrumbSchema = buildBreadcrumbSchema([
 	{ name: "Home", url: "/" },
 	{ name: "Services", url: "/services/" },
-	{ name: "Youth Boxing", url: "/services/youth-boxing/" },
+	{ name: "Youth Boxing Classes", url: "/services/youth-boxing/" },
 ]);
 ---
 

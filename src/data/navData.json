@@ -13,8 +13,8 @@
     "key": "Programs",
     "url": "/services/",
     "children": [
-      { "key": "Group Boxing Classes", "url": "/services/group-boxing-classes/" },
-      { "key": "Youth Boxing", "url": "/services/youth-boxing/" },
+      { "key": "Adult Boxing Classes", "url": "/services/adult-boxing/" },
+      { "key": "Youth Boxing Classes", "url": "/services/youth-boxing/" },
       { "key": "1-on-1 Personal Training", "url": "/services/personal-training/" },
       { "key": "STRONG by Zumba", "url": "/services/strong-by-zumba/" }
     ]
