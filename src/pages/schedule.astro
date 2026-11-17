@@ -15,22 +15,9 @@ const optimizedBanner = await getImage({ src: bannerImage, format: "webp" });
 type ClassSlot = { time: string; label: string; accent?: boolean };
 type DayRow = { day: string; tag?: string; classes: ClassSlot[] };
 
-const morning: DayRow[] = [
-	{
-		day: "Tuesday",
-		classes: [
-			{ time: "5:30 AM", label: "Boxing" },
-			{ time: "6:30 AM", label: "STRONG by Zumba", accent: true },
-		],
-	},
-	{ day: "Wednesday", classes: [{ time: "5:30 AM", label: "Boxing" }] },
-	{ day: "Thursday", classes: [{ time: "5:30 AM", label: "Boxing" }] },
-];
-
 const evening: DayRow[] = [
 	{
 		day: "Monday",
-		tag: "Beginner/Intermediate Classes",
 		classes: [
 			{ time: "6:00 PM", label: "Youth Boxing" },
 			{ time: "7:00 PM", label: "Adult Boxing" },
@@ -46,7 +33,6 @@ const evening: DayRow[] = [
 	},
 	{
 		day: "Wednesday",
-		tag: "Beginner/Intermediate Classes",
 		classes: [
 			{ time: "6:00 PM", label: "Youth Boxing" },
 			{ time: "7:00 PM", label: "Adult Boxing" },
@@ -65,12 +51,12 @@ const evening: DayRow[] = [
 
 <BaseLayout
 	title="Class Schedule"
-	description="First Rule Boxing Club's weekly class schedule in Fort Worth, TX — morning and evening boxing, youth boxing, and STRONG by Zumba."
+	description="First Rule Boxing Club's weekly class schedule in Fort Worth, TX — evening youth and adult boxing, Monday through Thursday."
 	heroImage={optimizedBanner}
 >
 	<Banner
 		title="Class Schedule"
-		description="Morning and evening classes, Monday through Thursday. Closed Friday – Sunday."
+		description="Evening classes Monday through Thursday. Closed Friday – Sunday."
 		image={optimizedBanner}
 	/>
 
@@ -80,63 +66,37 @@ const evening: DayRow[] = [
 				<span class="cs-topper">Weekly Schedule</span>
 				<h2 class="cs-title">Find Your Class Time</h2>
 				<p class="cs-text">
-					We train {BUSINESS.hours.display} — {BUSINESS.hours.closedDisplay}.
+					We're currently running evening classes Monday through Thursday —
+					morning classes are paused and return November 23 & 24 at 5:45 AM.
 					No experience required for any class on the schedule.
 				</p>
 			</div>
 
-			<div class="cs-columns">
-				<div class="cs-column">
-					<h3 class="cs-column-title cs-column-title--morning">Morning</h3>
-					<ul class="cs-day-list">
-						{
-							morning.map((row) => (
-								<li class="cs-day-row">
-									<div class="cs-day-head">
-										<span class="cs-day-name">{row.day}</span>
-										{row.tag && <span class="cs-day-tag">{row.tag}</span>}
-									</div>
-									<ul class="cs-class-list">
-										{row.classes.map((c) => (
-											<li class="cs-class-item">
-												<span class="cs-time">{c.time}</span>
-												<span class:list={["cs-class", { "cs-class--accent": c.accent }]}>
-													{c.label}
-												</span>
-											</li>
-										))}
-									</ul>
-								</li>
-							))
-						}
-					</ul>
-				</div>
+			<ul class="cs-day-list">
+				{
+					evening.map((row) => (
+						<li class="cs-day-row">
+							<div class="cs-day-head">
+								<span class="cs-day-name">{row.day}</span>
+								{row.tag && <span class="cs-day-tag">{row.tag}</span>}
+							</div>
+							<ul class="cs-class-list">
+								{row.classes.map((c) => (
+									<li class="cs-class-item">
+										<span class="cs-time">{c.time}</span>
+										<span class:list={["cs-class", { "cs-class--accent": c.accent }]}>
+											{c.label}
+										</span>
+									</li>
+								))}
+							</ul>
+						</li>
+					))
+				}
+			</ul>
 
-				<div class="cs-column">
-					<h3 class="cs-column-title cs-column-title--evening">Evening</h3>
-					<ul class="cs-day-list">
-						{
-							evening.map((row) => (
-								<li class="cs-day-row">
-									<div class="cs-day-head">
-										<span class="cs-day-name">{row.day}</span>
-										{row.tag && <span class="cs-day-tag">{row.tag}</span>}
-									</div>
-									<ul class="cs-class-list">
-										{row.classes.map((c) => (
-											<li class="cs-class-item">
-												<span class="cs-time">{c.time}</span>
-												<span class:list={["cs-class", { "cs-class--accent": c.accent }]}>
-													{c.label}
-												</span>
-											</li>
-										))}
-									</ul>
-								</li>
-							))
-						}
-					</ul>
-				</div>
+			<div class="cs-morning-notice">
+				<strong>Morning classes will return November 23 and 24th at 5:45 AM.</strong>
 			</div>
 
 			<p class="cs-schedule-note">
@@ -194,35 +154,27 @@ const evening: DayRow[] = [
 				margin: 0;
 			}
 
-			.cs-columns {
-				width: 100%;
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: clamp(2rem, 4vw, 3rem);
-			}
-
-			.cs-column-title {
-				font-family: var(--headerFont);
-				font-size: clamp(1.5rem, 3vw, 2rem);
-				font-weight: 700;
-				text-transform: uppercase;
-				margin: 0 0 (20/16rem) 0;
-				padding-bottom: (12/16rem);
-				border-bottom: 4px solid var(--primary);
-				color: var(--headerColor);
-
-				&--evening {
-					border-bottom-color: var(--secondary);
-				}
-			}
-
 			.cs-day-list {
+				width: 100%;
 				list-style: none;
 				margin: 0;
 				padding: 0;
-				display: flex;
-				flex-direction: column;
+				display: grid;
+				grid-template-columns: 1fr;
 				gap: (12/16rem);
+			}
+
+			.cs-morning-notice {
+				width: 100%;
+				box-sizing: border-box;
+				padding: clamp(1rem, 2.5vw, 1.25rem) clamp(1.25rem, 3vw, 1.5rem);
+				background-color: var(--primary);
+				border-left: 4px solid var(--headerColor);
+				color: #fff;
+				font-family: var(--headerFont);
+				font-size: clamp(1rem, 2vw, 1.125rem);
+				text-transform: uppercase;
+				letter-spacing: 0.02em;
 			}
 
 			.cs-day-row {
@@ -307,7 +259,7 @@ const evening: DayRow[] = [
 
 	@media only screen and (min-width: 48rem) {
 		#schedule-grid {
-			.cs-columns {
+			.cs-day-list {
 				grid-template-columns: repeat(2, 1fr);
 			}
 		}
@@ -319,7 +271,6 @@ const evening: DayRow[] = [
 				background-color: var(--dark);
 
 				.cs-title,
-				.cs-column-title,
 				.cs-day-name {
 					color: var(--bodyTextColorWhite);
 				}

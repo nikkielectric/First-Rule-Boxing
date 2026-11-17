@@ -8,7 +8,7 @@
     "lead": "First Rule Boxing Club is based right here in north Fort Worth, off Harmon Rd near the Alliance corridor. Group boxing, youth classes, and personal training — all coached, all in one gym.",
     "body": [
       "We're tucked into the Harmon Rd corridor in north Fort Worth, a quick pull off I-35W for members coming from Alliance, Northlake, and the neighborhoods around Eagle Mountain Lake. It's a working gym, not a big-box fitness floor — heavy bags, mitts, a coached class schedule, and an owner who knows your name by week two.",
-      "Most members start the same way: a group class to learn the basics, build some conditioning, and see if boxing is actually for them. From there it's wherever you want to take it — stick with group classes, add 1-on-1 coaching, or just use open gym time to put in extra rounds on your own.",
+      "Most members start the same way: a group class to learn the basics, build some conditioning, and see if boxing is actually for them. From there it's wherever you want to take it — stick with group classes or add 1-on-1 coaching to speed things up.",
       "We run two training windows Monday through Thursday — an early block before the workday starts and an evening block after it ends — so Fort Worth members training around a 9-to-5 or school pickup still have a real way to make class.",
       "Whether you've never thrown a punch or you boxed years ago and want back in the gym, the first step is the same: show up to a class, meet the coach, and see what the room feels like. That's the only way to know if it's a fit."
     ],
@@ -16,8 +16,7 @@
       "Group boxing classes for beginners building fundamentals from scratch",
       "Youth boxing for Fort Worth kids and teens who want structure and a coach who knows their name",
       "1-on-1 personal training for members who want focused, faster progress",
-      "STRONG by Zumba for members who want boxing-style conditioning without the sparring",
-      "Open gym access for members drilling on their own schedule"
+      "STRONG by Zumba for members who want boxing-style conditioning without the sparring"
     ],
     "scenarios": [
       {

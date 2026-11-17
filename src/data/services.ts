@@ -1,4 +1,4 @@
-// Single source of truth for First Rule Boxing Club's 5 programs.
+// Single source of truth for First Rule Boxing Club's 4 programs.
 // Used by: home page Services overview, the contact form's service dropdown,
 // every dynamic [city].astro location page, and the footer/nav.
 
@@ -6,7 +6,6 @@ import groupBoxingImg from "@assets/images/programs/group-boxing.jpg";
 import youthBoxingImg from "@assets/images/programs/youth-boxing.jpg";
 import personalTrainingImg from "@assets/images/programs/personal-training.jpg";
 import strongByZumbaImg from "@assets/images/programs/zumba-strong.jpg";
-import openGymImg from "@assets/images/programs/open-gym.jpg";
 
 export type ServiceSummary = {
 	slug: string;
@@ -53,14 +52,5 @@ export const SERVICES: ServiceSummary[] = [
 		tagline: "Cardio, strength, and music that doesn't quit.",
 		description:
 			"A high-energy group fitness class that blends boxing-inspired intervals with dance cardio — full-body conditioning that never feels like a treadmill.",
-	},
-	{
-		slug: "open-gym-membership",
-		title: "Open Gym Membership",
-		href: "/services/open-gym-membership/",
-		image: openGymImg,
-		tagline: "Bags, space, and time to put in the work.",
-		description:
-			"Full access to the heavy bags, mitts, and training floor outside of class hours — for members who want to drill on their own schedule.",
 	},
 ];
