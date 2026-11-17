@@ -1,18 +1,17 @@
 ---
 /**
  * * The hero component used on the homepage.
- * * Takes a pre-optimized image as a prop.
+ * * Takes a background video (with a poster fallback frame) as props.
  */
 
-import { Picture } from "astro:assets";
-import type { GetImageResult } from "astro";
 import { BUSINESS } from "@data/client";
 
 interface Props {
-  image: GetImageResult;
+  videoSrc: string;
+  posterSrc: string;
 }
 
-const { image } = Astro.props as Props;
+const { videoSrc, posterSrc } = Astro.props as Props;
 ---
 
 <section id="hero-1618">
@@ -56,18 +55,21 @@ const { image } = Astro.props as Props;
     </ul>
   </div>
 
-  <Picture
-    src={image.src}
-    alt=""
-    width={image.attributes.width}
-    height={image.attributes.height}
-    formats={["avif", "webp"]}
-    priority
-    pictureAttributes={{ class: "cs-background" }}
-  />
+  <div class="cs-background">
+    <video
+      src={videoSrc}
+      poster={posterSrc}
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"
+    />
+  </div>
 </section>
 
-<style lang="less" define:vars={{ heroBgUrl: `url(${image.src})` }}>
+<style lang="less">
   /*-- -------------------------- -->
 <---           Hero             -->
 <--- -------------------------- -*/
@@ -239,14 +241,14 @@ const { image } = Astro.props as Props;
           pointer-events: none;
         }
 
-        img {
+        video {
           position: absolute;
           top: 0;
           left: 0;
           height: 100%;
           width: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: center 40%;
         }
       }
     }
@@ -277,21 +279,6 @@ const { image } = Astro.props as Props;
             rgba(15, 17, 19, 0.1) 62.53%
           );
           opacity: 1;
-        }
-      }
-    }
-  }
-
-  @media only screen and (min-width: 100rem) {
-    #hero-1618 {
-      .cs-background {
-        background: var(--heroBgUrl);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        img {
-          display: none;
         }
       }
     }
