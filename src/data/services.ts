@@ -23,7 +23,7 @@ export const SERVICES: ServiceSummary[] = [
 		title: "Group Boxing Classes",
 		href: "/services/group-boxing-classes/",
 		image: groupBoxingImg,
-		tagline: "45 minutes. Pads, bags, and real technique.",
+		tagline: "60 minutes. Pads, bags, and real technique.",
 		description:
 			"High-intensity group boxing for every level — footwork, combinations, and conditioning led by a coach who corrects your form, not just your effort. No experience required.",
 	},
