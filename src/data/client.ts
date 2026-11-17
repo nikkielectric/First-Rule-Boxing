@@ -3,7 +3,7 @@ export const SITE = {
 	title: "First Rule Boxing Club",
 	tagline: "Fort Worth's Boxing Gym for Discipline, Strength & Results",
 	description:
-		"First Rule Boxing Club is a boxing gym in Fort Worth, TX offering group boxing classes, youth boxing, personal training, and self-defense for every age and skill level. Discipline. Strength. Results.",
+		"First Rule Boxing Club is a boxing gym in Fort Worth, TX offering group boxing classes, youth boxing, and personal training for every age and skill level. Discipline. Strength. Results.",
 	url: "https://firstruleboxing.com",
 	author: "First Rule Boxing Club",
 	locale: "en",
